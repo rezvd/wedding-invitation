@@ -29,9 +29,9 @@
 }
 
 .invitation-column {
-  width: min(100%, 1120px);
+  width: 100%;
   height: 100dvh;
-  margin: 0 auto;
+  margin: 0;
   position: relative;
   z-index: 1;
   overflow-y: auto;
@@ -50,6 +50,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
 }
 
 .hero-card {
@@ -213,27 +214,89 @@
   color: var(--accent);
 }
 
-.flower {
+.botanical {
   position: absolute;
-  width: 170px;
-  height: 170px;
-  opacity: 0.3;
+  pointer-events: none;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: contain;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23486f5a' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M95 190c7-34 13-61 25-86 8-16 22-34 34-45'/%3E%3Cellipse cx='120' cy='67' rx='10' ry='20' transform='rotate(-29 120 67)'/%3E%3Cellipse cx='138' cy='47' rx='9' ry='18' transform='rotate(-12 138 47)'/%3E%3Cellipse cx='104' cy='98' rx='9' ry='16' transform='rotate(-18 104 98)'/%3E%3Cellipse cx='84' cy='122' rx='8' ry='15' transform='rotate(17 84 122)'/%3E%3Cpath d='M95 130c-12-6-24-5-34 1'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.26;
+  z-index: 0;
 }
 
-.flower-top-left {
-  left: -20px;
-  top: -6px;
-  transform: rotate(32deg);
+.section-title,
+.body-copy,
+.timeline,
+.date,
+.kicker,
+.names,
+.invite-title,
+.lead,
+.location-status,
+.btn,
+.closing {
+  position: relative;
+  z-index: 1;
 }
 
-.flower-bottom-right {
-  right: -24px;
-  bottom: -12px;
-  transform: rotate(196deg) scale(0.92);
+.botanical-top-left {
+  top: 3%;
+  left: 1%;
+  width: clamp(84px, 10vw, 146px);
+  height: clamp(84px, 10vw, 146px);
+  background-image: url('/floral/floral-1.png');
+  transform: rotate(-14deg);
 }
+
+.botanical-top-right {
+  top: 4%;
+  right: 1%;
+  width: clamp(98px, 14vw, 196px);
+  height: clamp(98px, 14vw, 196px);
+  background-image: url('/floral/floral-2.png');
+  transform: rotate(18deg) scaleX(-1);
+}
+
+.botanical-bottom-right {
+  bottom: 3%;
+  right: 1.6%;
+  width: clamp(76px, 9vw, 132px);
+  height: clamp(76px, 9vw, 132px);
+  background-image: url('/floral/floral-4.png');
+  transform: rotate(164deg) scaleX(-1);
+}
+
+.section-card:nth-of-type(2n) .botanical-top-left {
+  background-image: url('/floral/floral-2.png');
+  transform: rotate(-8deg) scaleX(-1);
+  width: clamp(104px, 15vw, 208px);
+  height: clamp(104px, 15vw, 208px);
+}
+
+.section-card:nth-of-type(2n) .botanical-bottom-right {
+  background-image: url('/floral/floral-1.png');
+  transform: rotate(172deg);
+  width: clamp(70px, 8vw, 126px);
+  height: clamp(70px, 8vw, 126px);
+}
+
+.section-card:nth-of-type(3n) .botanical-top-right {
+  background-image: url('/floral/floral-4.png');
+  transform: rotate(8deg);
+  width: clamp(82px, 10vw, 150px);
+  height: clamp(82px, 10vw, 150px);
+}
+
+/* 1-3 leafs per screen */
+.section-card:nth-of-type(3n + 1) .botanical-top-right,
+.section-card:nth-of-type(3n + 1) .botanical-bottom-right {
+  display: none;
+}
+
+.section-card:nth-of-type(3n + 2) .botanical-bottom-right {
+  display: none;
+}
+
 
 @media (max-width: 700px) {
   .page {
@@ -248,6 +311,32 @@
     min-height: 100dvh;
     padding: 24px 16px;
   }
+
+  .botanical {
+    opacity: 0.22;
+  }
+
+  .botanical-top-left {
+    top: 2%;
+    left: -1%;
+    width: clamp(70px, 18vw, 114px);
+    height: clamp(70px, 18vw, 114px);
+  }
+
+  .botanical-top-right {
+    top: 2%;
+    right: -1%;
+    width: clamp(86px, 22vw, 132px);
+    height: clamp(86px, 22vw, 132px);
+  }
+
+  .botanical-bottom-right {
+    bottom: 2%;
+    right: -1%;
+    width: clamp(62px, 16vw, 100px);
+    height: clamp(62px, 16vw, 100px);
+  }
+
 
   .hero-card {
     min-height: 100dvh;
