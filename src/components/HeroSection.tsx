@@ -1,9 +1,6 @@
 function HeroSection() {
   return (
     <header className="hero-card section-card">
-      <div className="flower flower-top-left" aria-hidden="true" />
-      <div className="flower flower-bottom-right" aria-hidden="true" />
-
       <p className="kicker">Свадебное приглашение</p>
       <h1 className="names">Виктория и Иван</h1>
       <p className="date">1 августа 2026</p>
