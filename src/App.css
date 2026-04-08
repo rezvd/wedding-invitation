@@ -6,6 +6,76 @@
   --accent-hover: #609b79;
 }
 
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes leafFloat {
+  0% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+
+@keyframes grainDrift {
+  0% {
+    background-position: 0 0, 1px 1px;
+  }
+  50% {
+    background-position: 3px 2px, 5px 4px;
+  }
+  100% {
+    background-position: 0 0, 1px 1px;
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes swatchPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes timelineBreath {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .page {
   height: 100dvh;
   background:
@@ -26,6 +96,7 @@
     radial-gradient(rgba(76, 90, 82, 0.04) 0.6px, transparent 0.6px);
   background-size: 3px 3px, 5px 5px;
   background-position: 0 0, 1px 1px;
+  animation: grainDrift 14s ease-in-out infinite;
 }
 
 .invitation-column {
@@ -51,10 +122,70 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  animation: sectionReveal 0.7s ease both;
 }
 
 .hero-card {
   min-height: 100dvh;
+}
+
+.section-card:nth-of-type(2) {
+  animation-delay: 0.08s;
+}
+
+.section-card:nth-of-type(3) {
+  animation-delay: 0.12s;
+}
+
+.section-card:nth-of-type(4) {
+  animation-delay: 0.16s;
+}
+
+.section-card:nth-of-type(5) {
+  animation-delay: 0.2s;
+}
+
+.section-card:nth-of-type(6) {
+  animation-delay: 0.24s;
+}
+
+.section-card > .section-title,
+.section-card > .kicker,
+.section-card > .names,
+.section-card > .date,
+.section-card > .invite-title,
+.section-card > .lead,
+.section-card > .body-copy,
+.section-card > .timeline,
+.section-card > .location-status,
+.section-card > .palette,
+.section-card > .btn,
+.section-card > .closing {
+  animation: riseIn 0.85s ease both;
+}
+
+.section-card > .section-title,
+.section-card > .kicker {
+  animation-delay: 0.12s;
+}
+
+.section-card > .names,
+.section-card > .date,
+.section-card > .invite-title {
+  animation-delay: 0.22s;
+}
+
+.section-card > .lead,
+.section-card > .body-copy,
+.section-card > .timeline,
+.section-card > .location-status,
+.section-card > .palette {
+  animation-delay: 0.34s;
+}
+
+.section-card > .btn,
+.section-card > .closing {
+  animation-delay: 0.46s;
 }
 
 .section-title {
@@ -74,6 +205,7 @@
   font-size: 16px;
   color: var(--muted);
   font-family: 'Cormorant Garamond', serif;
+  animation: none;
 }
 
 .names {
@@ -84,6 +216,7 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1.06;
+  animation: none;
 }
 
 .date {
@@ -93,6 +226,7 @@
   letter-spacing: 0.08em;
   font-size: 18px;
   color: var(--muted);
+  animation: none;
 }
 
 .strong {
@@ -105,12 +239,14 @@
   font-size: 24px;
   line-height: 1.02;
   text-transform: uppercase;
+  animation: none;
 }
 
 .lead {
   margin: 22px 0 10px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 28px;
+  animation: none;
 }
 
 .body-copy {
@@ -119,6 +255,7 @@
   line-height: 1.22;
   font-family: 'Cormorant Garamond', serif;
   color: var(--ink);
+  animation: none;
 }
 
 .highlight-date {
@@ -150,6 +287,7 @@
   line-height: 0.96;
   color: var(--accent);
   font-weight: 600;
+  animation: timelineBreath 4.6s ease-in-out infinite;
 }
 
 .timeline-event {
@@ -182,29 +320,52 @@
   font-family: 'Cormorant Garamond', serif;
   font-size: 24px;
   letter-spacing: 0.02em;
-  transition: background-color 0.2s ease;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .btn:hover {
   background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 139, 105, 0.22);
 }
 
 .palette {
-  margin-top: 18px;
+  margin-top: 24px;
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 14px;
-  max-width: 660px;
+  grid-template-columns: repeat(4, 78px);
+  column-gap: 16px;
+  row-gap: 14px;
+  max-width: max-content;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .swatch {
-  width: 68px;
-  height: 68px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  border: 1px solid rgba(120, 128, 116, 0.35);
+  border: 1px solid rgba(120, 128, 116, 0.28);
   justify-self: center;
+  box-shadow: 0 2px 8px rgba(60, 70, 62, 0.08);
+}
+
+.swatch:nth-child(2n) {
+  transform: translateY(2px);
+  animation: swatchPulse 3.4s ease-in-out infinite;
+}
+
+.swatch:nth-child(4n + 1) {
+  transform: translateY(-2px);
+  animation: swatchPulse 4.2s ease-in-out infinite;
+}
+
+.swatch:nth-child(3n) {
+  animation: swatchPulse 3.8s ease-in-out infinite;
 }
 
 .closing {
@@ -222,6 +383,7 @@
   background-size: contain;
   opacity: 0.26;
   z-index: 0;
+  animation: leafFloat 5.8s ease-in-out infinite;
 }
 
 .section-title,
@@ -246,6 +408,7 @@
   height: clamp(84px, 10vw, 146px);
   background-image: url('/floral/floral-1.png');
   transform: rotate(-14deg);
+  animation-delay: 0s;
 }
 
 .botanical-top-right {
@@ -255,6 +418,7 @@
   height: clamp(98px, 14vw, 196px);
   background-image: url('/floral/floral-2.png');
   transform: rotate(18deg) scaleX(-1);
+  animation-delay: 0.9s;
 }
 
 .botanical-bottom-right {
@@ -264,6 +428,7 @@
   height: clamp(76px, 9vw, 132px);
   background-image: url('/floral/floral-4.png');
   transform: rotate(164deg) scaleX(-1);
+  animation-delay: 1.6s;
 }
 
 .section-card:nth-of-type(2n) .botanical-top-left {
@@ -271,6 +436,7 @@
   transform: rotate(-8deg) scaleX(-1);
   width: clamp(104px, 15vw, 208px);
   height: clamp(104px, 15vw, 208px);
+  animation-delay: 0.5s;
 }
 
 .section-card:nth-of-type(2n) .botanical-bottom-right {
@@ -278,6 +444,7 @@
   transform: rotate(172deg);
   width: clamp(70px, 8vw, 126px);
   height: clamp(70px, 8vw, 126px);
+  animation-delay: 1.2s;
 }
 
 .section-card:nth-of-type(3n) .botanical-top-right {
@@ -285,6 +452,7 @@
   transform: rotate(8deg);
   width: clamp(82px, 10vw, 150px);
   height: clamp(82px, 10vw, 150px);
+  animation-delay: 1.8s;
 }
 
 /* 1-3 leafs per screen */
@@ -295,6 +463,31 @@
 
 .section-card:nth-of-type(3n + 2) .botanical-bottom-right {
   display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-card,
+  .botanical,
+  .grain,
+  .kicker,
+  .names,
+  .date,
+  .invite-title,
+  .lead,
+  .body-copy,
+  .timeline-time,
+  .swatch {
+    animation: none !important;
+  }
+
+  .btn {
+    transition: background-color 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
 }
 
 
@@ -364,14 +557,16 @@
   }
 
   .palette {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    max-width: 270px;
-    gap: 12px;
+    margin-top: 18px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 320px;
+    column-gap: 10px;
+    row-gap: 12px;
   }
 
   .swatch {
-    width: 58px;
-    height: 58px;
+    width: 56px;
+    height: 56px;
   }
 
   .btn {
