@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import SectionCard from './SectionCard'
+import { getShowRegistry } from '../utils/showRegistry'
 
 const venues = [
   {
@@ -10,6 +11,7 @@ const venues = [
       'https://yandex.ru/maps/org/sovetskiy_otdel_upravleniya_zags_glavnogo_gosudarstvenno_pravovogo_upravleniya_omskoy_oblasti/1036434433',
     widgetUrl:
       'https://yandex.ru/map-widget/v1/?ll=73.249213%2C55.030242&z=16&pt=73.249213,55.030242,pm2rdm',
+    registry: true,
   },
   {
     title: 'Банкет',
@@ -48,6 +50,8 @@ function VenueCard({ venue }: { venue: Venue }) {
 
 function LocationSection() {
   const [isMobile, setIsMobile] = useState(false)
+  const showRegistry = getShowRegistry()
+  const visibleVenues = venues.filter((venue) => showRegistry || !venue.registry)
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 700px)')
@@ -64,7 +68,7 @@ function LocationSection() {
   if (isMobile) {
     return (
       <>
-        {venues.map((venue) => (
+        {visibleVenues.map((venue) => (
           <SectionCard key={venue.title} title="Место проведения">
             <div className="venues venues-single" aria-label={venue.title}>
               <VenueCard venue={venue} />
@@ -77,8 +81,11 @@ function LocationSection() {
 
   return (
     <SectionCard title="Место проведения">
-      <div className="venues" aria-label="Адреса свадьбы">
-        {venues.map((venue) => (
+      <div
+        className={`venues${visibleVenues.length === 1 ? ' venues-single' : ''}`}
+        aria-label="Адреса свадьбы"
+      >
+        {visibleVenues.map((venue) => (
           <VenueCard key={venue.title} venue={venue} />
         ))}
       </div>

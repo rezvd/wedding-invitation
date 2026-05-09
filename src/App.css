@@ -369,6 +369,7 @@
 
 .venues-single {
   width: min(100%, 520px);
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .venue-card {

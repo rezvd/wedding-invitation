@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import SectionCard from './SectionCard'
+import { getShowRegistry } from '../utils/showRegistry'
 
 const timeline = [
-  { time: '15:20', event: 'Начало церемонии в ЗАГСе', note: 'Лучше приехать немного заранее' },
+  { time: '15:20', event: 'Начало церемонии в ЗАГСе', note: 'Лучше приехать немного заранее', registry: true },
   { time: '17:00', event: 'Сбор гостей' },
   { time: '17:30', event: 'Начало банкета' },
   { time: '23:00', event: 'Окончание банкета' },
@@ -11,6 +12,8 @@ const timeline = [
 function TimelineSection() {
   const [isVisible, setIsVisible] = useState(false)
   const timelineRef = useRef<HTMLOListElement | null>(null)
+  const showRegistry = getShowRegistry()
+  const visibleTimeline = timeline.filter((item) => showRegistry || !item.registry)
 
   useEffect(() => {
     const node = timelineRef.current
@@ -41,7 +44,7 @@ function TimelineSection() {
         className={`timeline timeline-layout${isVisible ? ' timeline-visible' : ''}`}
         aria-label="Расписание дня"
       >
-        {timeline.map((item, index) => (
+        {visibleTimeline.map((item, index) => (
           <li
             key={item.time}
             className={`timeline-item timeline-row${item.note ? '' : ' timeline-row-no-note'}`}
@@ -49,7 +52,7 @@ function TimelineSection() {
           >
             <div className="timeline-time-wrap">
               <p className="timeline-time">{item.time}</p>
-              {index < timeline.length - 1 ? <span className="timeline-stem" aria-hidden="true" /> : null}
+              {index < visibleTimeline.length - 1 ? <span className="timeline-stem" aria-hidden="true" /> : null}
             </div>
             <div className="timeline-content">
               <p className="timeline-event">{item.event}</p>
