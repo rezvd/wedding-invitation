@@ -1,14 +1,18 @@
 import SectionCard from "./SectionCard";
 
 const palette = [
-  "#dbe8f0",
-  "#dfe5f1",
-  "#d7e4dd",
-  "#e6efe9",
-  "#f3eab9",
-  "#efd7d8",
-  "#f6e4ea",
-  "#f1e4cc",
+  "#D5E5DF",
+  "#C8DAED",
+  "#8FAF85",
+  "#6B8F6B",
+  "#F5EDE3",
+  "#F2D9DC",
+  "#E8C4C4",
+  "#C4A097",
+  "#B89080",
+  "#9E7B6B",
+  "#7A5545",
+  "#3D1A10",
 ];
 
 function DressCodeSection() {
@@ -19,8 +23,8 @@ function DressCodeSection() {
         атмосферу нашего дня. Будем рады, если вы поддержите её в своих образах.
       </p>
       <p className="body-copy centered">
-        Если будет возможность, просим по возможности избегать белого цвета (в
-        мужских рубашках допустимо).
+        Если будет возможность, просим избегать белого цвета (в мужских рубашках
+        допустимо).
       </p>
 
       <div className="palette" aria-label="Пастельная палитра">
