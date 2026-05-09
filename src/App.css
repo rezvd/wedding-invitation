@@ -129,6 +129,63 @@
   min-height: 100dvh;
 }
 
+.rsvp-card {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(92, 143, 111, 0.22), transparent 20%),
+    radial-gradient(circle at 84% 82%, rgba(56, 107, 78, 0.2), transparent 22%),
+    #4f8b69;
+  color: #f1ebdf;
+}
+
+.rsvp-card .section-title {
+  color: #fbf7ef;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: clamp(50px, 6.4vw, 80px);
+  line-height: 0.96;
+  font-weight: 500;
+  max-width: 980px;
+  margin: 0 auto 72px;
+}
+
+.rsvp-card .body-copy {
+  color: #f2ecdf;
+  max-width: 1120px;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.38;
+}
+
+.rsvp-card .centered {
+  margin-bottom: 28px;
+}
+
+.rsvp-card .highlight-date {
+  color: #fffaf2;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.rsvp-card .botanical {
+  opacity: 0.14;
+  filter: grayscale(1) brightness(0.72);
+}
+
+.rsvp-card .rsvp-btn {
+  margin-top: 48px;
+  padding: 18px 40px;
+  min-width: min(100%, 650px);
+  background: #fcfaf4;
+  color: #2f5f47;
+  font-size: clamp(22px, 2.4vw, 34px);
+  letter-spacing: 0.12em;
+  box-shadow: 0 12px 30px rgba(22, 38, 27, 0.14);
+}
+
+.rsvp-card .rsvp-btn:hover {
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(22, 38, 27, 0.22);
+}
+
 .section-card:nth-of-type(2) {
   animation-delay: 0.08s;
 }
@@ -667,6 +724,25 @@
   .body-copy {
     font-size: 22px;
     line-height: 1.24;
+  }
+
+  .rsvp-card .section-title {
+    margin-bottom: 44px;
+    font-size: 38px;
+    line-height: 1;
+  }
+
+  .rsvp-card .body-copy {
+    font-size: 21px;
+    line-height: 1.42;
+  }
+
+  .rsvp-btn {
+    margin-top: 30px;
+    padding: 16px 22px;
+    min-width: min(100%, 320px);
+    font-size: 20px;
+    letter-spacing: 0.08em;
   }
 
   .timeline {
