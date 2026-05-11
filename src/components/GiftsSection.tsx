@@ -4,7 +4,12 @@ import leave9 from "../assets/leaves/leave_9.png";
 function GiftsSection() {
   return (
     <SectionCard title="Подарки">
-      <img className="section-deco deco-gifts-top-right" src={leave9} alt="" aria-hidden="true" />
+      <img
+        className="section-deco deco-gifts-top-right"
+        src={leave9}
+        alt=""
+        aria-hidden="true"
+      />
       <p className="body-copy centered">
         Самый ценный подарок для нас — ваше присутствие и тёплые эмоции этого
         дня.
@@ -14,8 +19,8 @@ function GiftsSection() {
         благодарны за вклад в её начало в удобном для вас формате.
       </p>
       <p className="body-copy centered">
-        А если захочется дополнить подарок небольшим знаком внимания, вместо
-        цветов будем рады лотерейному билету.
+        А если вам захочется дополнить подарок небольшим знаком внимания, мы
+        будем рады одному цветочку в общий букет, а также шоколаду или конфетам.
       </p>
     </SectionCard>
   );
