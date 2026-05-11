@@ -1,4 +1,4 @@
-import SectionCard from './SectionCard'
+import SectionCard from "./SectionCard";
 
 function RsvpSection() {
   return (
@@ -9,14 +9,20 @@ function RsvpSection() {
         <strong className="highlight-date">1 июля</strong>.
       </p>
       <p className="body-copy centered">
-        Для подтверждения участия и получения актуальной информации,
-        пожалуйста, присоединитесь к чату гостей во ВКонтакте по ссылке ниже.
+        Для подтверждения участия и получения актуальной информации, пожалуйста,
+        присоединитесь к чату гостей во ВКонтакте по ссылке ниже.
       </p>
-      <a className="btn rsvp-btn" href="#" aria-label="Подтвердить и вступить в чат">
+      <a
+        className="btn rsvp-btn"
+        href="https://vk.me/join/TuinhCOSOCWIC5eddQuuoed54UOCe4afTY4="
+        aria-label="Подтвердить и вступить в чат"
+        target="_blank"
+        rel="noreferrer"
+      >
         Подтвердить и вступить в чат
       </a>
     </SectionCard>
-  )
+  );
 }
 
-export default RsvpSection
+export default RsvpSection;
