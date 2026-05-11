@@ -1,4 +1,5 @@
 import SectionCard from "./SectionCard";
+import branch1 from "../assets/leaves/branch_1.png";
 
 const palette = [
   "#D5E5DF",
@@ -18,6 +19,7 @@ const palette = [
 function DressCodeSection() {
   return (
     <SectionCard title="Дресс-код">
+      <img className="section-deco deco-dresscode-bottom-left" src={branch1} alt="" aria-hidden="true" />
       <p className="body-copy centered">
         Мы подготовили палитру оттенков, которые особенно красиво впишутся в
         атмосферу нашего дня. Будем рады, если вы поддержите её в своих образах.

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import SectionCard from './SectionCard'
 import { getShowRegistry } from '../utils/showRegistry'
+import leave10 from '../assets/leaves/leave_10.png'
 
 const timeline = [
   { time: '15:20', event: 'Начало церемонии в ЗАГСе', note: 'Лучше приехать немного заранее', registry: true },
@@ -39,6 +40,7 @@ function TimelineSection() {
 
   return (
     <SectionCard title="Тайминг дня">
+      <img className="section-deco deco-timeline-bottom-right" src={leave10} alt="" aria-hidden="true" />
       <ol
         ref={timelineRef}
         className={`timeline timeline-layout${isVisible ? ' timeline-visible' : ''}`}

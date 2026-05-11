@@ -1,8 +1,10 @@
 import SectionCard from "./SectionCard";
+import leave9 from "../assets/leaves/leave_9.png";
 
 function GiftsSection() {
   return (
     <SectionCard title="Подарки">
+      <img className="section-deco deco-gifts-top-right" src={leave9} alt="" aria-hidden="true" />
       <p className="body-copy centered">
         Самый ценный подарок для нас — ваше присутствие и тёплые эмоции этого
         дня.

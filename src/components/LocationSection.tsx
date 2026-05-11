@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import SectionCard from './SectionCard'
 import { getShowRegistry } from '../utils/showRegistry'
+import branch2 from '../assets/leaves/branch_2.png'
 
 const venues = [
   {
@@ -48,6 +49,17 @@ function VenueCard({ venue }: { venue: Venue }) {
   )
 }
 
+function LocationDecor({ alt = false }: { alt?: boolean }) {
+  return (
+    <img
+      className={`section-deco deco-location-bottom-right${alt ? ' deco-location-bottom-right-alt' : ''}`}
+      src={branch2}
+      alt=""
+      aria-hidden="true"
+    />
+  )
+}
+
 function LocationSection() {
   const [isMobile, setIsMobile] = useState(false)
   const showRegistry = getShowRegistry()
@@ -68,8 +80,9 @@ function LocationSection() {
   if (isMobile) {
     return (
       <>
-        {visibleVenues.map((venue) => (
+        {visibleVenues.map((venue, index) => (
           <SectionCard key={venue.title} title="Место проведения">
+            <LocationDecor alt={index === 1} />
             <div className="venues venues-single" aria-label={venue.title}>
               <VenueCard venue={venue} />
             </div>
@@ -81,6 +94,7 @@ function LocationSection() {
 
   return (
     <SectionCard title="Место проведения">
+      <LocationDecor />
       <div
         className={`venues${visibleVenues.length === 1 ? ' venues-single' : ''}`}
         aria-label="Адреса свадьбы"
