@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import coupleImage from "../assets/ivan-and-victoria-no-bg.png";
+import coupleImage from "../assets/ivan-and-victoria-no-bg.webp";
 import heartImage from "../assets/heart_no_bg.png";
 
 const fallingHearts = [
